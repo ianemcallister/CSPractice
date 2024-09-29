@@ -5,6 +5,28 @@
 }
 
 <div class="text-center">
+    <div id="circle"></div>
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/EXIWlRrkjKE?si=Zq_ay-7T-AZ39J3U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <script>
+        const circle = document.getElementById('circle');
+        let position = 0;
+        let direction = 1;
+
+        function animate() {
+            position += 5 * direction; // Moves the circle a
+            circle.style.left = position + "px"; // Update the circle position
+
+            // Change the direction when reaching the edge
+            if (position >= window.innerWidth - 50 || position <= 0) {
+                direction *= -1; // Reverse direction
+            }
+
+            requestAnimationFrame(animate); // continue animation
+
+        }
+
+        animate(); // Exectue the animation
+    </script>
 </div>
